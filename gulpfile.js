@@ -36,7 +36,7 @@ function styles() {
 function scripts() {
 	return src([
 		// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
-		'themes/' + theme + '/assets/vendor/lazyload.js', // Vendor scripts
+		'themes/' + theme + '/assets/vendor/lazyload.js', // Vendor script example
 		'themes/' + theme + '/assets/javascript/app.js' // Theme app.js. Always at the end
 		])
 	.pipe(concat('theme.min.js'))
