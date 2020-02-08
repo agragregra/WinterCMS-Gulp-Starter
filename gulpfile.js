@@ -1,10 +1,11 @@
 let localhost    = 'october.loc:8888' // Local domain
 let preprocessor = 'less'; // Preprocessor (sass, scss, less, styl) & folder name & const name
 let theme        = 'demo'; // Theme folder name
-let fileswatch   = 'html,htm,txt,yaml,twig,json,md' // List of files extensions for watching & hard reload
+let fileswatch   = 'html,htm,txt,yaml,twig,json,md' // List of files extensions for watching & hard reload (comma separated)
 
 const { src, dest, parallel, watch } = require('gulp');
-const { sass, scss } = require('gulp-sass');
+const sass           = require('gulp-sass');
+const scss           = require('gulp-sass');
 const less           = require('gulp-less');
 const styl           = require('gulp-stylus');
 const cleancss       = require('gulp-clean-css');
