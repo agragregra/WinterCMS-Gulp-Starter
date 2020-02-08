@@ -1,5 +1,5 @@
 let localhost    = 'october.loc:8888' // Local domain
-let preprocessor = 'less'; // Preprocessor (sass, scss, less, styl) / Preprocessor folder name / Require const name
+let preprocessor = 'sass'; // Preprocessor (sass, scss, less, styl) / Preprocessor folder name / Module require const name. Example: themes/demo/assets/scss/
 let theme        = 'demo'; // Theme folder name
 let fileswatch   = 'html,htm,txt,yaml,twig,json,md' // List of files extensions for watching & hard reload (comma separated)
 
