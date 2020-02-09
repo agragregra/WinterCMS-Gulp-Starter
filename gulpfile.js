@@ -37,11 +37,11 @@ function scripts() {
 	return src([
 		// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 		'themes/' + theme + '/assets/vendor/lazyload.js', // Vendor script example
-		'themes/' + theme + '/assets/javascript/app.js' // Theme app.js. Always at the end
+		'themes/' + theme + '/assets/js/app.js' // Theme app.js. Always at the end
 		])
 	.pipe(concat('theme.min.js'))
 	.pipe(uglify()) // Minify js (opt.)
-	.pipe(dest('themes/' + theme + '/assets/javascript'))
+	.pipe(dest('themes/' + theme + '/assets/js'))
 	.pipe(browserSync.stream())
 }
 
@@ -62,7 +62,7 @@ function deploy() {
 
 function startwatch() {
 	watch('themes/' + theme + '/assets/' + preprocessor + '/*.*', parallel('styles'));
-	watch(['themes/' + theme + '/assets/javascript/app.js', 'themes/' + theme + '/assets/vendor/**/*.js'], parallel('scripts'));
+	watch(['themes/' + theme + '/assets/js/app.js', 'themes/' + theme + '/assets/vendor/**/*.js'], parallel('scripts'));
 	watch('themes/' + theme + '/**/*.{' + fileswatch + '}').on('change', browserSync.reload);
 }
 
