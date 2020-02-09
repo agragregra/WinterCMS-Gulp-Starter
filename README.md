@@ -5,37 +5,25 @@
 
 <p>Recommends using the following base directory structure for you theme:</p>
 
-<code>
+<pre>
 themes/
-
 — themename/           <= Theme starts here
-
 — — pages/             <= Pages directory
 — — — home.htm
-
 — — layouts/           <= Layouts directory
 — — — default.htm
-
 — — partials/          <= Partials directory (Optional)
 — — — sidebar.htm
-
 — — content/           <= Content directory
 — — — intro.htm
-
 — — assets/            <= Assets directory
-
 — — — css/
 — — — — theme.min.css  <= Minified styles
-
 — — — js/
 — — — — theme.min.js   <= Minified scripts
-
 — — — images/
-
 — — — sass/             <= Preprocessor folder (Maybe sass, scss, less, styl)
 — — — — theme.sass      <= Main user Sass file (Maybe theme.sass, theme.scss, theme.less or theme.styl)
-
 — — — vendor/            <= Vendor scripts or styles (For example - jQuery, Bootstrap, etc..)
-
 — — theme.yaml
-</code>
+</pre>
