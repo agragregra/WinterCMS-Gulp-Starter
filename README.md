@@ -22,8 +22,8 @@ themes/
 — — — js/
 — — — — theme.min.js   <= Minified scripts
 — — — images/
-— — — sass/             <= Preprocessor folder (Maybe sass, scss, less, styl)
-— — — — theme.sass      <= Main user Sass file (Maybe theme.sass, theme.scss, theme.less or theme.styl)
-— — — vendor/            <= Vendor scripts or styles (For example - jQuery, Bootstrap, etc..)
+— — — sass/            <= Preprocessor folder (Maybe sass, scss, less, styl)
+— — — — theme.sass     <= Main user Sass file (Maybe theme.sass, theme.scss, theme.less or theme.styl)
+— — — vendor/          <= Vendor scripts or styles (For example - jQuery, Bootstrap, etc..)
 — — theme.yaml
 </pre>
