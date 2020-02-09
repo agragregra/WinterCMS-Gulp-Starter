@@ -1,0 +1,29 @@
+description = "Default layout"
+useContent = 1
+default = 0
+==
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>October CMS - {{ this.page.title }}</title>
+	<meta name="description" content="{{ this.page.meta_description }}">
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="{{ 'assets/images/october.png'|theme }}">
+	<link href="{{ 'assets/css/theme.min.css'|theme }}" rel="stylesheet">
+	{% styles %}
+</head>
+
+<body>
+
+	<section id="layout-content">
+		{% page %}
+	</section>
+
+	<script src="{{ 'assets/javascript/theme.min.js'|theme }}"></script>
+	{% framework extras %}
+	{% scripts %}
+
+</body>
+</html>
