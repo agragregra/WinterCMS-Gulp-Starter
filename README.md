@@ -20,6 +20,7 @@ themes/
 — — — css/
 — — — — theme.min.css  <= Minified styles
 — — — js/
+— — — — app.js         <= Main user JavaScript file
 — — — — theme.min.js   <= Minified scripts
 — — — images/
 — — — sass/            <= Preprocessor folder (Maybe sass, scss, less, styl)
@@ -27,3 +28,11 @@ themes/
 — — — vendor/          <= Vendor scripts or styles (For example - jQuery, Bootstrap, etc..)
 — — theme.yaml
 </pre>
+
+<h2>Starter Features & Variables in gulpfile.js</h2>
+
+<ol>
+	<li><strong>Make proxy for live update with Browsersync</strong> - <code>let localhost</code></li>
+	<li><strong>Simple preprocessor selection</strong> - <code>let preprocessor</code></li>
+	<li></li>
+</ol>
