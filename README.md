@@ -1,5 +1,10 @@
 <h1>October CMS Gulp Starter</h1>
-<p>Lightweight optimized Gulp starter for October CMS theme development with Gulp 4, Browsersync, all preprocessors (sass, scss, less, stylus), cleancss, uglify-es, autoprefixer, rsync, cache.htaccess samples for better caching and more.</p>
+
+<p>Lightweight optimized Gulp starter for October CMS theme development with Gulp 4, Browsersync, preprocessors (sass, scss, less, stylus), cleancss, uglify-es, autoprefixer, rsync, cache.htaccess samples for better caching and more.</p>
+
+<p>
+	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/october-gulp-preview.jpg" alt="Optober Gulp">
+</p>
 
 <h2>October CMS Theme Directory structure</h2>
 
@@ -35,7 +40,7 @@ themes/
 	<li><strong>Make proxy for live development with Browsersync</strong> - <code>let localhost</code></li>
 	<li><strong>Simple preprocessor selection (sass, scss, less, styl)</strong> - <code>let preprocessor</code></li>
 	<li><strong>Simple selection of the current theme</strong> - <code>let theme</code></li>
-	<li><strong>Simple selection of file extensions to watch</strong> - <code>let fileswatch</code></li>
+	<li><strong>Simple selection of file extensions to watch & reload</strong> - <code>let fileswatch</code></li>
 	<li><strong>Better CSS</strong> - <code>gulp-clean-css, gulp-autoprefixer</code></li>
 	<li><strong>Better JS</strong> - <code>gulp-uglify-es</code>. Vendor scripts plug into scripts functions.</li>
 	<li><strong>Better deploy with rsync</strong> - <code>gulp-rsync</code></li>
