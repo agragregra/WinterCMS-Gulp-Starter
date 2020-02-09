@@ -10,8 +10,8 @@ default = 0
 	<title>October CMS - {{ this.page.title }}</title>
 	<meta name="description" content="{{ this.page.meta_description }}">
 	<meta name="viewport" content="width=device-width">
-	<link rel="icon" href="{{ 'assets/images/october.png'|theme }}">
-	<link href="{{ 'assets/css/theme.min.css'|theme }}" rel="stylesheet">
+	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
+	<link href="{{ 'assets/css/theme.min.css' | theme }}" rel="stylesheet">
 	{% styles %}
 </head>
 
@@ -21,7 +21,7 @@ default = 0
 		{% page %}
 	</section>
 
-	<script src="{{ 'assets/javascript/theme.min.js'|theme }}"></script>
+	<script src="{{ 'assets/javascript/theme.min.js' | theme }}"></script>
 	{% framework extras %}
 	{% scripts %}
 
