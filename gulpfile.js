@@ -40,7 +40,7 @@ function scripts() {
 		'themes/' + theme + '/assets/js/app.js' // Theme app.js. Always at the end
 		])
 	.pipe(concat('theme.min.js'))
-	.pipe(uglify()) // Minify js (opt.)
+	.pipe(uglify()) // Minify JS (opt.)
 	.pipe(dest('themes/' + theme + '/assets/js'))
 	.pipe(browserSync.stream())
 }
