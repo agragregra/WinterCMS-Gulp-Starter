@@ -1,7 +1,7 @@
 <h1>October CMS Gulp Starter</h1>
 
 <p>Lightweight optimized Gulp starter for October CMS theme development with Gulp 4, Browsersync, preprocessors (sass, scss, less, stylus), cleancss, uglify-es, autoprefixer, rsync, cache.htaccess samples for better caching and more.</p>
- 
+
 <p>
 	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/october-gulp-preview.jpg" alt="Optober Gulp">
 </p>
