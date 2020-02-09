@@ -32,7 +32,22 @@ themes/
 <h2>Starter Features & Variables in gulpfile.js</h2>
 
 <ol>
-	<li><strong>Make proxy for live update with Browsersync</strong> - <code>let localhost</code></li>
-	<li><strong>Simple preprocessor selection</strong> - <code>let preprocessor</code></li>
-	<li></li>
+	<li><strong>Make proxy for live development with Browsersync</strong> - <code>let localhost</code></li>
+	<li><strong>Simple preprocessor selection (sass, scss, less, styl)</strong> - <code>let preprocessor</code></li>
+	<li><strong>Simple selection of the current theme</strong> - <code>let theme</code></li>
+	<li><strong>Simple selection of file extensions to watch</strong> - <code>let fileswatch</code></li>
+	<li><strong>Better CSS</strong> - <code>gulp-clean-css, gulp-autoprefixer</code></li>
+	<li><strong>Better JS</strong> - <code>gulp-uglify-es</code>. Vendor scripts plug into scripts functions.</li>
+	<li><strong>Better deploy with rsync</strong> - <code>gulp-rsync</code></li>
 </ol>
+
+<h2>Exported Gulp Task</h2>
+
+<ul>
+	<li><strong>browsersync</strong></li>
+	<li><strong>assets</strong> - Compile assets (CSS & JS)</li>
+	<li><strong>styles</strong> - Compile and concat CSS with selected preprocessor</li>
+	<li><strong>scripts</strong> - Compile, minify and concat JS with gulp-uglify-es & gulp-concat</li>
+	<li><strong>deploy</strong> - deploy changes on server with gulp-rsync</li>
+	<li><strong>gulp</strong> - The default command to start the environment</li>
+</ul>

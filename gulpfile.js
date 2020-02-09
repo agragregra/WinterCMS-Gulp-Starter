@@ -67,6 +67,7 @@ function startwatch() {
 }
 
 exports.browsersync = browsersync;
+exports.assets      = parallel(styles, scripts);
 exports.styles      = styles;
 exports.scripts     = scripts;
 exports.deploy      = deploy;
