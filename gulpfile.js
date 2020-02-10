@@ -1,6 +1,7 @@
 let localhost    = 'october.loc:8888' // Local domain
 let preprocessor = 'sass'; // Preprocessor (sass, scss, less, styl) / Preprocessor folder name / Module require const name. Example: themes/demo/assets/scss/
 let theme        = 'demo'; // Theme folder name
+let jsfolder     = 'js' // Preferred custom JavaScript folder name (js, javascript, etc.) in theme assets directory. Default: themes/demo/assets/js/
 let fileswatch   = 'html,htm,txt,yaml,twig,json,md' // List of files extensions for watching & hard reload (comma separated)
 
 const { src, dest, parallel, series, watch } = require('gulp');
@@ -37,11 +38,11 @@ function scripts() {
 	return src([
 		// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 		'themes/' + theme + '/assets/vendor/lazyload.js', // Vendor script example
-		'themes/' + theme + '/assets/js/app.js' // Theme app.js. Always at the end
+		'themes/' + theme + '/assets/' + jsfolder + '/app.js' // Theme app.js. Always at the end
 		])
 	.pipe(concat('theme.min.js'))
 	.pipe(uglify()) // Minify JS (opt.)
-	.pipe(dest('themes/' + theme + '/assets/js'))
+	.pipe(dest('themes/' + theme + '/assets/' + jsfolder + ''))
 	.pipe(browserSync.stream())
 }
 
@@ -62,7 +63,7 @@ function deploy() {
 
 function startwatch() {
 	watch('themes/' + theme + '/assets/' + preprocessor + '/*.*', parallel('styles'));
-	watch(['themes/' + theme + '/assets/js/app.js', 'themes/' + theme + '/assets/vendor/**/*.js'], parallel('scripts'));
+	watch(['themes/' + theme + '/assets/' + jsfolder + '/app.js', 'themes/' + theme + '/assets/vendor/**/*.js'], parallel('scripts'));
 	watch('themes/' + theme + '/**/*.{' + fileswatch + '}').on('change', browserSync.reload);
 }
 
