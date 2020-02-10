@@ -1,6 +1,6 @@
 <h1>October CMS Gulp Starter</h1>
 
-<p>Lightweight optimized Gulp starter for October CMS theme development with Gulp 4, Browsersync, preprocessors (sass, scss, less, stylus), cleancss, uglify-es, autoprefixer, rsync, cache.htaccess samples for better caching and more.</p>
+<p>Lightweight optimized Gulp starter for October CMS theme development with Gulp 4, Browsersync, preprocessors (sass, scss, less, stylus), cleancss, uglify-es, autoprefixer, rsync and more.</p>
 
 <p>
 	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/october-gulp-preview.jpg" alt="Optober Gulp">
@@ -44,7 +44,6 @@ themes/
 	<li><strong>Better CSS</strong> - <code>gulp-clean-css, gulp-autoprefixer</code></li>
 	<li><strong>Better JS</strong> - <code>gulp-uglify-es</code>. Vendor scripts plug into scripts functions.</li>
 	<li><strong>Better deploy with rsync</strong> - <code>gulp-rsync</code></li>
-	<li><strong>Better files caching with cache.htaccess</strong> - Attention! There is no need to rename the file and replace it with the standard .htaccess in the root folder of the site, you just need to take the necessary from this file and use it in your project.</li>
 </ol>
 
 <h2>Exported Gulp Task</h2>
