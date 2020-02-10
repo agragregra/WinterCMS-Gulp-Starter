@@ -3,7 +3,7 @@ let preprocessor = 'sass'; // Preprocessor (sass, scss, less, styl) / Preprocess
 let theme        = 'demo'; // Theme folder name
 let fileswatch   = 'html,htm,txt,yaml,twig,json,md' // List of files extensions for watching & hard reload (comma separated)
 
-const { src, dest, parallel, watch } = require('gulp');
+const { src, dest, parallel, series, watch } = require('gulp');
 const sass           = require('gulp-sass');
 const scss           = require('gulp-sass');
 const less           = require('gulp-less');
