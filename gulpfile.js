@@ -1,7 +1,7 @@
 let localhost    = 'october.loc:8888' // Local domain
 let preprocessor = 'sass'; // Preprocessor (sass, scss, less, styl) / Preprocessor folder name / Module require const name. Example: themes/demo/assets/scss/
 let theme        = 'demo'; // Theme folder name
-let jsfolder     = 'js' // Preferred custom JavaScript folder name (js, javascript, etc.) in theme assets directory. Default: themes/demo/assets/js/
+let jsfolder     = 'js' // Preferred JavaScript folder name (js, javascript, etc.) in theme assets directory. Default: themes/demo/assets/js/
 let fileswatch   = 'html,htm,txt,yaml,twig,json,md' // List of files extensions for watching & hard reload (comma separated)
 
 const { src, dest, parallel, series, watch } = require('gulp');
