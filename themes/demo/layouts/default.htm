@@ -1,12 +1,7 @@
 {% partial 'header' class='myclass' %}
 
-	<section id="layout-content">
+	<section>
 		{% page %}
 	</section>
 
-	<script src="{{ 'assets/javascript/theme.min.js' | theme }}"></script>
-	{% framework extras %}
-	{% scripts %}
-
-</body>
-</html>
+{% partial 'footer' %}
