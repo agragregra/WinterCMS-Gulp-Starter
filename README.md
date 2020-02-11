@@ -6,6 +6,10 @@
 	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/october-gulp-preview.jpg" alt="Optober Gulp">
 </p>
 
+<h2>Install</h2>
+
+<p><code>git clone https://github.com/agragregra/OctoberCMS-Gulp-Starter .</code></p>
+
 <h2>October CMS Theme Directory structure</h2>
 
 <p>Recommends using the following base directory structure for you theme:</p>
