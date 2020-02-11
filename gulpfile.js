@@ -19,7 +19,7 @@ const rsync          = require('gulp-rsync');
 function browsersync() {
 	browserSync.init({
 		proxy: localhost,
-		// notify: false,
+		notify: false,
 		// online: false, // Work offline without internet connection
 	})
 }
