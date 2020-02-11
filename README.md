@@ -8,7 +8,7 @@
 
 <h2>Installation</h2>
 
-<p>Run this in the root directory of the site <strong>with a dot</strong> at the end:</p>
+<p>Run this in the root directory of you site <strong>with a dot</strong> at the end:</p>
 
 <code>git clone https://github.com/agragregra/OctoberCMS-Gulp-Starter .</code>
 
