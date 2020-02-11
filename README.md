@@ -18,7 +18,7 @@
 
 <pre>
 themes/
-— themename/           <= Theme starts here
+— mytheme/           <= Theme starts here
 — — pages/             <= Pages directory
 — — — home.htm
 — — layouts/           <= Layouts directory
