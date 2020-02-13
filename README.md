@@ -24,7 +24,8 @@ themes/
 — — layouts/           <= Layouts directory
 — — — default.htm
 — — partials/          <= Partials directory (Optional)
-— — — sidebar.htm
+— — — header.htm
+— — — footer.htm
 — — content/           <= Content directory
 — — — intro.htm
 — — assets/            <= Assets directory
