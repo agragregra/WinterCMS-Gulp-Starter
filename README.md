@@ -47,7 +47,7 @@ themes/
 	<li><strong>Simple preprocessor selection (sass, scss, less, styl)</strong> - <code>let preprocessor</code></li>
 	<li><strong>Simple selection of the current theme</strong> - <code>let theme</code></li>
 	<li><strong>Simple selection of file extensions to watch & reload</strong> - <code>let fileswatch</code></li>
-	<li><strong>Better CSS</strong> - <code>gulp-clean-css, gulp-autoprefixer</code></li>
+	<li><strong>Better CSS</strong> - <code>gulp-clean-css, gulp-autoprefixer. Importing framework extras CSS into theme preprocessor file</code></li>
 	<li><strong>Better JS</strong> - <code>gulp-uglify-es</code>. Vendor scripts & framework extras plug into scripts functions.</li>
 	<li><strong>Better deploy with rsync</strong> - <code>gulp-rsync</code></li>
 </ol>
