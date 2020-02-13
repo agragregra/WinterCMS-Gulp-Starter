@@ -6,6 +6,7 @@ default = 0
 <html lang="ru">
 
 <head>
+
 	<meta charset="utf-8">
 	<title>October CMS - {{ this.page.title }}</title>
 	<meta name="description" content="{{ this.page.meta_description }}">
@@ -13,6 +14,7 @@ default = 0
 	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
 	<link href="{{ 'assets/css/theme.min.css' | theme }}" rel="stylesheet">
 	{% styles %}
+
 </head>
 
 <body class="is_{{ this.page.id }}{{ class ? ' ' ~ class }}">
