@@ -37,7 +37,7 @@ function styles() {
 function scripts() {
 	return src([
 		// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
-		// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script example
+		// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
 		// 'modules/system/assets/js/framework.js', // {% framework extras %}
 		// 'modules/system/assets/js/framework.extras.js', // {% scripts %}
 		'themes/' + theme + '/assets/' + jsfolder + '/app.js' // Theme app.js. Always at the end
