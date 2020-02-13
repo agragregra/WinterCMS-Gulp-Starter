@@ -25,7 +25,7 @@ function browsersync() {
 }
 
 function styles() {
-	return src('themes/' + theme + '/assets/' + preprocessor + '/*.*')
+	return src('themes/' + theme + '/assets/' + preprocessor + '/*')
 	.pipe(eval(preprocessor)())
 	.pipe(concat('theme.min.css'))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
@@ -64,9 +64,15 @@ function deploy() {
 }
 
 function startwatch() {
-	watch('themes/' + theme + '/assets/' + preprocessor + '/*.*', parallel('styles'));
-	watch(['themes/' + theme + '/assets/' + jsfolder + '/app.js', 'themes/' + theme + '/assets/vendor/**/*.js'], parallel('scripts'));
-	watch(['themes/' + theme + '/**/*.{' + fileswatch + '}', 'plugins/**/*.{' + fileswatch + '}']).on('change', browserSync.reload);
+	watch('themes/' + theme + '/assets/' + preprocessor + '/*', parallel('styles'));
+	watch([
+		'themes/' + theme + '/assets/' + jsfolder + '/**/*.js',
+		'!themes/' + theme + '/assets/' + jsfolder + '/*.min.js',
+		'themes/' + theme + '/assets/vendor/**/*.js'], parallel('scripts'));
+	watch([
+		'themes/' + theme + '/**/*.{' + fileswatch + '}',
+		'plugins/**/*.{' + fileswatch + '}'
+		]).on('change', browserSync.reload);
 }
 
 exports.browsersync = browsersync;
