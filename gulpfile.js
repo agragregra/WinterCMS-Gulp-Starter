@@ -28,7 +28,7 @@ function styles() {
 	return src('themes/' + theme + '/assets/' + preprocessor + '/*.*')
 	.pipe(eval(preprocessor)())
 	.pipe(concat('theme.min.css'))
-	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'] }))
+	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
 	.pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
 	.pipe(dest('themes/' + theme + '/assets/css'))
 	.pipe(browserSync.stream())
