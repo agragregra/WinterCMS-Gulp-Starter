@@ -40,6 +40,7 @@ function scripts() {
 		// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
 		// 'modules/system/assets/js/framework.js', // {% framework extras %}
 		// 'modules/system/assets/js/framework.extras.js', // {% framework extras %}
+		// 'plugins/nms/plugin/assets/js/plugin.js', // Plugin script example
 		'themes/' + theme + '/assets/' + jsfolder + '/app.js' // Theme app.js. Always at the end
 		])
 	.pipe(concat('theme.min.js'))
