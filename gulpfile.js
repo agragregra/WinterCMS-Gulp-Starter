@@ -39,7 +39,7 @@ function scripts() {
 		// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 		// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
 		// 'modules/system/assets/js/framework.js', // {% framework extras %}
-		// 'modules/system/assets/js/framework.extras.js', // {% scripts %}
+		// 'modules/system/assets/js/framework.extras.js', // {% framework extras %}
 		'themes/' + theme + '/assets/' + jsfolder + '/app.js' // Theme app.js. Always at the end
 		])
 	.pipe(concat('theme.min.js'))
