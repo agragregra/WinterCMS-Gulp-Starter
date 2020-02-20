@@ -8,8 +8,9 @@ default = 0
 <head>
 
 	<meta charset="utf-8">
-	<title>October CMS - {{ this.page.title }}</title>
-	<meta name="description" content="{{ this.page.meta_description }}">
+	<title>{{ this.page.title }}</title>
+	{% if record.description != null %}<meta name="description" content="{{ str_limit(record.description | striptags , 120) }}">
+	{% else %}<meta name="description" content="{{ this.page.meta_description }}">{% endif %}
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
 	<link href="{{ 'assets/css/theme.min.css' | theme }}" rel="stylesheet">
