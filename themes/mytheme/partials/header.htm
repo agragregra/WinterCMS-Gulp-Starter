@@ -13,7 +13,7 @@ default = 0
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
 	<link href="{{ 'assets/css/theme.min.css' | theme }}" rel="stylesheet">
-	{# Uncomment to view plugin assets for concatenation to gulpfile.js scripts & preprocessor styles
+	{# Uncomment to view plugins CSS assets for preprocessor styles import
 	{% styles %}
 	#}
 
@@ -25,7 +25,7 @@ default = 0
 		<ul>
 			<li>
 				{% if this.page.id == 'index' %}<span>Home</span>
-				{% else %}<a href="{{ 'index' | page }}">Home</a>{% endif %}
+				{% else %}<a href="{{ '/' }}">Home</a>{% endif %}
 			</li>
 		</ul>
 	</nav>
