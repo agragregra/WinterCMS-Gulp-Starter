@@ -65,7 +65,7 @@ function deploy() {
 }
 
 function startwatch() {
-	watch('themes/' + theme + '/assets/' + preprocessor + '/*', parallel('styles'));
+	watch('themes/' + theme + '/assets/' + preprocessor + '/**/*', parallel('styles'));
 	watch([
 		'themes/' + theme + '/assets/' + jsfolder + '/**/*.js',
 		'!themes/' + theme + '/assets/' + jsfolder + '/*.min.js',
