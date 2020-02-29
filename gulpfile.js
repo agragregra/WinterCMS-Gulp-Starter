@@ -5,16 +5,16 @@ let jsfolder     = 'js'; // Preferred JavaScript folder name (js, javascript, et
 let fileswatch   = 'html,htm,php,txt,yaml,twig,json,md'; // List of files extensions for watching & hard reload (comma separated)
 
 const { src, dest, parallel, series, watch } = require('gulp');
-const sass           = require('gulp-sass');
-const scss           = require('gulp-sass');
-const less           = require('gulp-less');
-const styl           = require('gulp-stylus');
-const cleancss       = require('gulp-clean-css');
-const concat         = require('gulp-concat');
-const browserSync    = require('browser-sync').create();
-const uglify         = require('gulp-uglify-es').default;
-const autoprefixer   = require('gulp-autoprefixer');
-const rsync          = require('gulp-rsync');
+const sass         = require('gulp-sass');
+const scss         = require('gulp-sass');
+const less         = require('gulp-less');
+const styl         = require('gulp-stylus');
+const cleancss     = require('gulp-clean-css');
+const concat       = require('gulp-concat');
+const browserSync  = require('browser-sync').create();
+const uglify       = require('gulp-uglify-es').default;
+const autoprefixer = require('gulp-autoprefixer');
+const rsync        = require('gulp-rsync');
 
 function browsersync() {
 	browserSync.init({
