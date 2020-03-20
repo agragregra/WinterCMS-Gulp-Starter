@@ -1,8 +1,32 @@
-let localhost    = 'october.loc:8888' // Local domain
-let preprocessor = 'sass'; // Preprocessor (sass, scss, less, styl) / Preprocessor folder name / Module require const name. Example: themes/mytheme/assets/scss/
-let theme        = 'mytheme'; // Theme folder name
-let jsfolder     = 'js'; // Preferred JavaScript folder name (js, javascript, etc.) in theme assets directory. Default: themes/mytheme/assets/js/
-let fileswatch   = 'html,htm,php,txt,yaml,twig,json,md'; // List of files extensions for watching & hard reload (comma separated)
+// VARIABLES & PATHS
+
+let localhost    = 'october.loc:8080', // Local domain
+    preprocessor = 'sass', // Preprocessor (sass, scss, less, styl) / Preprocessor folder name / Module require const name. Example: themes/mytheme/assets/scss/
+    theme        = 'mytheme', // Theme folder name
+    fileswatch   = 'html,htm,php,txt,yaml,twig,json,md', // List of files extensions for watching & hard reload (comma separated)
+    online       = true; // If «false» - Browsersync will work offline without internet connection
+
+let paths = {
+
+	scripts: [
+		// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
+		// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
+		// 'modules/system/assets/js/framework.js', // {% framework extras %}
+		// 'modules/system/assets/js/framework.extras.js', // {% framework extras %}
+		// 'plugins/nms/plugin/assets/js/plugin.js', // Plugin script example
+		'themes/' + theme + '/assets/js/app.js' // Theme app.js. Always at the end
+	],
+
+	deploy: {
+		hostname:    'username@yousite.com', // Deploy hostname
+		destination: 'yousite/public_html/', // Deploy destination
+		include:     [/* '*.htaccess' */], // Included files to deploy
+		exclude: ['**/Thumbs.db', '**/*.DS_Store', '**/*.sqlite'], // Excluded files from deploy
+	},
+
+}
+
+// LOGIC
 
 const { src, dest, parallel, series, watch } = require('gulp');
 const sass         = require('gulp-sass');
@@ -20,7 +44,7 @@ function browsersync() {
 	browserSync.init({
 		proxy: localhost,
 		notify: false,
-		// online: false, // Work offline without internet connection
+		online: online
 	})
 }
 
@@ -35,17 +59,10 @@ function styles() {
 }
 
 function scripts() {
-	return src([
-		// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
-		// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
-		// 'modules/system/assets/js/framework.js', // {% framework extras %}
-		// 'modules/system/assets/js/framework.extras.js', // {% framework extras %}
-		// 'plugins/nms/plugin/assets/js/plugin.js', // Plugin script example
-		'themes/' + theme + '/assets/' + jsfolder + '/app.js' // Theme app.js. Always at the end
-		])
+	return src(paths.scripts)
 	.pipe(concat('theme.min.js'))
-	.pipe(uglify()) // Minify JS (opt.)
-	.pipe(dest('themes/' + theme + '/assets/' + jsfolder + ''))
+	.pipe(uglify())
+	.pipe(dest('themes/' + theme + '/assets/js'))
 	.pipe(browserSync.stream())
 }
 
@@ -53,10 +70,10 @@ function deploy() {
 	return src('/')
 	.pipe(rsync({
 		root: '/',
-		hostname: 'username@yousite.com',
-		destination: 'yousite/public_html/',
-		// include: ['*.htaccess'], // Included files
-		exclude: ['**/Thumbs.db', '**/*.DS_Store', '**/*.sqlite'], // Excluded files
+		hostname: paths.deploy.hostname,
+		destination: paths.deploy.destination,
+		include: paths.deploy.include,
+		exclude: paths.deploy.exclude,
 		recursive: true,
 		archive: true,
 		silent: false,
@@ -66,15 +83,8 @@ function deploy() {
 
 function startwatch() {
 	watch('themes/' + theme + '/assets/' + preprocessor + '/**/*', styles);
-	watch([
-		'themes/'  + theme + '/assets/' + jsfolder + '/**/*.js',
-		'!themes/' + theme + '/assets/' + jsfolder + '/*.min.js',
-		'themes/'  + theme + '/assets/vendor/**/*.js'
-		], scripts);
-	watch([
-		'themes/' + theme + '/**/*.{' + fileswatch + '}',
-		'plugins/**/*.{' + fileswatch + '}'
-		]).on('change', browserSync.reload);
+	watch(['themes/'  + theme + '/assets/js/**/*.js', '!themes/' + theme + '/assets/js/*.min.js', 'themes/'  + theme + '/assets/vendor/**/*.js'], scripts);
+	watch(['themes/' + theme + '/**/*.{' + fileswatch + '}', 'plugins/**/*.{' + fileswatch + '}']).on('change', browserSync.reload);
 }
 
 exports.browsersync = browsersync;
