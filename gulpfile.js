@@ -49,7 +49,7 @@ function browsersync() {
 }
 
 function styles() {
-	return src('themes/' + theme + '/assets/' + preprocessor + '/*')
+	return src('themes/' + theme + '/assets/' + preprocessor + '/main.*')
 	.pipe(eval(preprocessor)())
 	.pipe(concat('theme.min.css'))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
