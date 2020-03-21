@@ -34,7 +34,6 @@ let paths = {
 			'npm-debug.log',
 			'themes/**/assets/js/app.js',
 			'themes/**/assets/' + preprocessor,
-			'**/*.psd',
 		],
 	},
 
