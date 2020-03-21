@@ -8,14 +8,16 @@ let localhost    = 'october.loc:8080', // Local domain
 
 let paths = {
 
-	scripts: [
-		// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
-		// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
-		// 'modules/system/assets/js/framework.js', // {% framework extras %}
-		// 'modules/system/assets/js/framework.extras.js', // {% framework extras %}
-		// 'plugins/nms/plugin/assets/js/plugin.js', // Plugin script example
-		'themes/' + theme + '/assets/js/app.js' // Theme app.js. Always at the end
-	],
+	scripts: {
+		src: [
+			// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
+			// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
+			// 'modules/system/assets/js/framework.js', // {% framework extras %}
+			// 'modules/system/assets/js/framework.extras.js', // {% framework extras %}
+			// 'plugins/nms/plugin/assets/js/plugin.js', // Plugin script example
+			'themes/' + theme + '/assets/js/app.js' // Theme app.js. Always at the end
+		],
+	},
 
 	deploy: {
 		hostname:    'username@yousite.com', // Deploy hostname
@@ -59,7 +61,7 @@ function styles() {
 }
 
 function scripts() {
-	return src(paths.scripts)
+	return src(paths.scripts.src)
 	.pipe(concat('theme.min.js'))
 	.pipe(uglify())
 	.pipe(dest('themes/' + theme + '/assets/js'))
