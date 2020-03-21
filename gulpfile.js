@@ -22,8 +22,20 @@ let paths = {
 	deploy: {
 		hostname:    'username@yousite.com', // Deploy hostname
 		destination: 'yousite/public_html/', // Deploy destination
-		include:     [/* '*.htaccess' */], // Included files to deploy
-		exclude: ['**/Thumbs.db', '**/*.DS_Store', '**/*.sqlite'], // Excluded files from deploy
+		include:     [ '*.htaccess' ], // Included files to deploy
+		exclude:     [ // Excluded files from deploy
+			'**/Thumbs.db',
+			'**/*.DS_Store',
+			'**/*.sqlite',
+			'node_modules',
+			'gulpfile.js',
+			'package.json',
+			'package-lock.json',
+			'npm-debug.log',
+			'themes/**/assets/js/app.js',
+			'themes/**/assets/' + preprocessor,
+			'**/*.psd',
+		],
 	},
 
 }
