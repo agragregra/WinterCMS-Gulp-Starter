@@ -24,9 +24,9 @@ let paths = {
 		destination: 'yousite/public_html/', // Deploy destination
 		include:     [ '*.htaccess' ], // Included files to deploy
 		exclude:     [ // Excluded files from deploy
+			'**/*.sqlite',
 			'**/Thumbs.db',
 			'**/*.DS_Store',
-			'**/*.sqlite',
 			'node_modules',
 			'gulpfile.js',
 			'package.json',
