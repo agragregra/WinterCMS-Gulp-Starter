@@ -22,7 +22,7 @@ let paths = {
 	deploy: {
 		hostname:    'username@yousite.com', // Deploy hostname
 		destination: 'yousite/public_html/', // Deploy destination
-		include:     [ '*.htaccess' ], // Included files to deploy
+		include:     [ '*.htaccess', ], // Included files to deploy
 		exclude:     [ // Excluded files from deploy
 			'**/*.sqlite',
 			'**/Thumbs.db',
