@@ -61,6 +61,14 @@ function browsersync() {
 	})
 }
 
+function scripts() {
+	return src(paths.scripts.src)
+	.pipe(concat('theme.min.js'))
+	.pipe(uglify())
+	.pipe(dest('themes/' + theme + '/assets/js'))
+	.pipe(browserSync.stream())
+}
+
 function styles() {
 	return src('themes/' + theme + '/assets/' + preprocessor + '/main.*')
 	.pipe(eval(preprocessor)())
@@ -68,14 +76,6 @@ function styles() {
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
 	.pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
 	.pipe(dest('themes/' + theme + '/assets/css'))
-	.pipe(browserSync.stream())
-}
-
-function scripts() {
-	return src(paths.scripts.src)
-	.pipe(concat('theme.min.js'))
-	.pipe(uglify())
-	.pipe(dest('themes/' + theme + '/assets/js'))
 	.pipe(browserSync.stream())
 }
 
