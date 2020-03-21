@@ -32,8 +32,8 @@ let paths = {
 			'package.json',
 			'package-lock.json',
 			'npm-debug.log',
-			'themes/**/assets/js/app.js',
-			'themes/**/assets/' + preprocessor,
+			'themes/' + theme + '/assets/js/app.js',
+			'themes/' + theme + '/assets/' + preprocessor,
 		],
 	},
 
