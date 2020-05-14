@@ -24,7 +24,7 @@ let paths = {
 		destination: 'yousite/public_html/', // Deploy destination
 		include:     [ '*.htaccess', ], // Included files to deploy
 		exclude:     [ // Excluded files from deploy
-			'**/*.sqlite',
+			'storage/*.sqlite',
 			'**/Thumbs.db',
 			'**/*.DS_Store',
 			'node_modules',
@@ -74,7 +74,7 @@ function styles() {
 	.pipe(eval(preprocessor)())
 	.pipe(concat('theme.min.css'))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
-	.pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
+	.pipe(cleancss( {level: { 1: { specialComments: 0 } },/* format: 'beautify' */ }))
 	.pipe(dest('themes/' + theme + '/assets/css'))
 	.pipe(browserSync.stream())
 }
