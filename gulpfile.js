@@ -70,7 +70,7 @@ function scripts() {
 }
 
 function styles() {
-	return src('themes/' + theme + '/assets/' + preprocessor + '/main.*')
+	return src('themes/' + theme + '/assets/' + preprocessor + '/theme.*')
 	.pipe(eval(preprocessor)())
 	.pipe(concat('theme.min.css'))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
@@ -95,9 +95,9 @@ function deploy() {
 }
 
 function startwatch() {
-	watch('themes/' + theme + '/assets/' + preprocessor + '/**/*', styles);
-	watch(['themes/'  + theme + '/assets/js/**/*.js', '!themes/' + theme + '/assets/js/*.min.js', 'themes/'  + theme + '/assets/vendor/**/*.js'], scripts);
-	watch(['themes/' + theme + '/**/*.{' + fileswatch + '}', 'plugins/**/*.{' + fileswatch + '}']).on('change', browserSync.reload);
+	watch('themes/' + theme + '/assets/' + preprocessor + '/**/*', {usePolling: true}, styles);
+	watch(['themes/'  + theme + '/assets/js/**/*.js', '!themes/' + theme + '/assets/js/*.min.js', 'themes/'  + theme + '/assets/vendor/**/*.js'], {usePolling: true}, scripts);
+	watch(['themes/' + theme + '/**/*.{' + fileswatch + '}', 'plugins/**/*.{' + fileswatch + '}'], {usePolling: true}).on('change', browserSync.reload);
 }
 
 exports.browsersync = browsersync;

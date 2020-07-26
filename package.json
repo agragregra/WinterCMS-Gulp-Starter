@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/agragregra/OctoberCMS-Gulp-Starter#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.10",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.3.0",
@@ -27,6 +27,6 @@
     "gulp-sass": "^4.1.0",
     "gulp-stylus": "^2.7.0",
     "gulp-uglify-es": "^2.0.0",
-    "less": "3.11.3"
+    "less": "3.12.2"
   }
 }
