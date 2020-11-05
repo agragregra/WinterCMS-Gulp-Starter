@@ -8,15 +8,20 @@ let localhost    = 'october.loc:8080', // Local domain
 
 let paths = {
 
-	scripts: {
+	plugins: {
 		src: [
 			// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 			// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
 			// 'modules/system/assets/js/framework.js', // {% framework extras %}
 			// 'modules/system/assets/js/framework.extras.js', // {% framework extras %}
 			// 'plugins/nms/plugin/assets/js/plugin.js', // Plugin script example
-			'themes/' + theme + '/assets/js/app.js' // Theme app.js. Always at the end
-		],
+		]
+	},
+
+	userscripts: {
+		src: [
+			'themes/' + theme + '/assets/js/app.js', // Theme app.js. Always at the end
+		]
 	},
 
 	deploy: {
@@ -49,7 +54,8 @@ const styl         = require('gulp-stylus');
 const cleancss     = require('gulp-clean-css');
 const concat       = require('gulp-concat');
 const browserSync  = require('browser-sync').create();
-const uglify       = require('gulp-uglify-es').default;
+const babel        = require('gulp-babel');
+const uglify       = require('gulp-uglify');
 const autoprefixer = require('gulp-autoprefixer');
 const rsync        = require('gulp-rsync');
 
@@ -61,12 +67,33 @@ function browsersync() {
 	})
 }
 
+function plugins() {
+	if (paths.plugins.src != '') {
+		return src(paths.plugins.src)
+		.pipe(concat('plugins.tmp.js'))
+		.pipe(dest('themes/' + theme + '/assets/js/_tmp'))
+	} else {
+		async function createFile() {
+			require('fs').writeFileSync('themes/' + theme + '/assets/js/_tmp/plugins.tmp.js', '');
+		}; return createFile();
+	}
+}
+
+function userscripts() {
+	return src(paths.userscripts.src)
+	.pipe(babel({ presets: ['@babel/env'] }))
+	.pipe(concat('userscripts.tmp.js'))
+	.pipe(dest('themes/' + theme + '/assets/js/_tmp'))
+}
+
 function scripts() {
-	return src(paths.scripts.src)
+	return src([
+		'themes/' + theme + '/assets/js/_tmp/plugins.tmp.js',
+		'themes/' + theme + '/assets/js/_tmp/userscripts.tmp.js'
+	])
 	.pipe(concat('theme.min.js'))
 	.pipe(uglify())
 	.pipe(dest('themes/' + theme + '/assets/js'))
-	.pipe(browserSync.stream())
 }
 
 function styles() {
@@ -74,7 +101,7 @@ function styles() {
 	.pipe(eval(preprocessor)())
 	.pipe(concat('theme.min.css'))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
-	.pipe(cleancss( {level: { 1: { specialComments: 0 } },/* format: 'beautify' */ }))
+	.pipe(cleancss({ level: { 1: { specialComments: 0 } },/* format: 'beautify' */ }))
 	.pipe(dest('themes/' + theme + '/assets/css'))
 	.pipe(browserSync.stream())
 }
@@ -96,13 +123,13 @@ function deploy() {
 
 function startwatch() {
 	watch('themes/' + theme + '/assets/' + preprocessor + '/**/*', {usePolling: true}, styles);
-	watch(['themes/'  + theme + '/assets/js/**/*.js', '!themes/' + theme + '/assets/js/*.min.js', 'themes/'  + theme + '/assets/vendor/**/*.js'], {usePolling: true}, scripts);
 	watch(['themes/' + theme + '/**/*.{' + fileswatch + '}', 'plugins/**/*.{' + fileswatch + '}'], {usePolling: true}).on('change', browserSync.reload);
+	watch(['themes/'  + theme + '/assets/js/**/*.js', '!themes/' + theme + '/assets/js/**/*.min.js', '!themes/' + theme + '/assets/js/**/*.tmp.js', 'themes/'  + theme + '/assets/vendor/**/*.js'], {usePolling: true}, series(plugins, userscripts, scripts)).on('change', browserSync.reload);
 }
 
 exports.browsersync = browsersync;
-exports.assets      = parallel(styles, scripts);
+exports.scripts     = series(plugins, userscripts, scripts);
+exports.assets      = parallel(styles, plugins, userscripts, scripts);
 exports.styles      = styles;
-exports.scripts     = scripts;
 exports.deploy      = deploy;
-exports.default     = parallel(styles, scripts, browsersync, startwatch);
+exports.default     = series(plugins, userscripts, scripts, styles, parallel(browsersync, startwatch));
