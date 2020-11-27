@@ -19,7 +19,7 @@ function browsersync() {
 }
 
 function scripts() {
-	return src([`themes/${theme}/assets/js/theme.js`])
+	return src(`themes/${theme}/assets/js/theme.js`)
 	.pipe(webpack({
 		mode: 'production',
 		module: {
