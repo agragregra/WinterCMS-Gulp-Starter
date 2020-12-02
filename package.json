@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/agragregra/OctoberCMS-Gulp-Starter#readme",
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.0.0",
     "browser-sync": "^2.26.13",
