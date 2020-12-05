@@ -34,11 +34,11 @@ themes/
 — — — intro.htm
 — — assets/              <= Assets directory
 — — — styles/
-— — — — theme.sass       <= Main Sass file
+— — — — theme.sass       <= Main style src file
 — — — — dist/
 — — — — — theme.min.css  <= Minified styles
 — — — js/
-— — — — theme.js         <= Main theme JavaScript file
+— — — — theme.js         <= Main theme JavaScript src file
 — — — — dist/
 — — — — — theme.min.js   <= Minified scripts
 — — — images/
