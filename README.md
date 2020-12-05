@@ -35,12 +35,10 @@ themes/
 — — assets/              <= Assets directory
 — — — styles/
 — — — — theme.sass       <= Main style src file
-— — — — dist/
-— — — — — theme.min.css  <= Minified styles
+— — — — theme.min.css    <= Minified styles
 — — — scripts/
 — — — — theme.js         <= Main JavaScript src file
-— — — — dist/
-— — — — — theme.min.js   <= Minified scripts
+— — — — theme.min.js     <= Minified scripts
 — — — images/
 — — theme.yaml
 </pre>
