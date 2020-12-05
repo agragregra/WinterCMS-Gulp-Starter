@@ -38,7 +38,7 @@ themes/
 — — — — dist/
 — — — — — theme.min.css  <= Minified styles
 — — — js/
-— — — — theme.js         <= Main theme JavaScript src file
+— — — — theme.js         <= Main JavaScript src file
 — — — — dist/
 — — — — — theme.min.js   <= Minified scripts
 — — — images/
