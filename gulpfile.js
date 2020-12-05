@@ -19,7 +19,7 @@ function browsersync() {
 }
 
 function scripts() {
-	return src(`themes/${theme}/assets/js/theme.js`)
+	return src(`themes/${theme}/assets/scripts/theme.js`)
 	.pipe(webpack({
 		mode: 'production',
 		module: {
@@ -38,16 +38,16 @@ function scripts() {
 		this.emit('end')
 	})
 	.pipe(rename('theme.min.js'))
-	.pipe(dest(`themes/${theme}/assets/js`))
+	.pipe(dest(`themes/${theme}/assets/scripts/dist`))
 	.pipe(browserSync.stream())
 }
 
 function styles() {
-	return src(`themes/${theme}/assets/sass/theme.sass`)
+	return src(`themes/${theme}/assets/styles/theme.sass`)
 	.pipe(sass({ outputStyle: 'compressed' }))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
 	.pipe(rename('theme.min.css'))
-	.pipe(dest(`themes/${theme}/assets/css`))
+	.pipe(dest(`themes/${theme}/assets/styles/dist`))
 	.pipe(browserSync.stream())
 }
 
@@ -67,8 +67,9 @@ function deploy() {
 			'package.json',
 			'package-lock.json',
 			'npm-debug.log',
-			`themes/${theme}/assets/js/theme.js`,
-			`themes/${theme}/assets/sass`,
+			'debug.log',
+			`themes/${theme}/assets/scripts/theme.js`,
+			`themes/${theme}/assets/styles/**/*.sass`,
 		],
 		recursive: true,
 		archive: true,
@@ -78,14 +79,13 @@ function deploy() {
 }
 
 function startwatch() {
-	watch(`themes/${theme}/assets/sass/**/*`, { usePolling: true }, styles)
-	watch([`themes/${theme}/assets/js/**/*.js`, `!themes/${theme}/assets/js/**/*.min.js`], { usePolling: true }, scripts)
+	watch([`themes/${theme}/assets/styles/**/*`, `!themes/${theme}/assets/styles/dist/**`], { usePolling: true }, styles)
+	watch([`themes/${theme}/assets/scripts/**/*.js`, `!themes/${theme}/assets/scripts/dist/**`], { usePolling: true }, scripts)
 	watch([`themes/${theme}/**/*.{${fileswatch}}`, `plugins/**/*.{${fileswatch}}`], { usePolling: true }).on('change', browserSync.reload)
 }
 
-exports.browsersync = browsersync;
 exports.scripts     = scripts;
-exports.assets      = parallel(styles, scripts);
 exports.styles      = styles;
 exports.deploy      = deploy;
+exports.assets      = parallel(scripts, styles);
 exports.default     = series(scripts, styles, parallel(browsersync, startwatch));

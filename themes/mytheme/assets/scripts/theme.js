@@ -1,4 +1,4 @@
-import $ from 'jquery'; window.jQuery = $; window.$ = $ // import module example (npm i -D jquery)
+import $ from 'jquery' // import jQuery module
 
 // Require October CMS System Framework (requires jQuery)
 require('modules/system/assets/js/framework.js')
