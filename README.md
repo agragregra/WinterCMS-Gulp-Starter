@@ -22,25 +22,26 @@
 
 <pre>
 themes/
-— mytheme/           <= Theme starts here
-— — pages/             <= Pages directory
+— mytheme/               <= Theme starts here
+— — pages/               <= Pages directory
 — — — home.htm
-— — layouts/           <= Layouts directory
+— — layouts/             <= Layouts directory
 — — — default.htm
-— — partials/          <= Partials directory (Optional)
+— — partials/            <= Partials directory (Optional)
 — — — header.htm
 — — — footer.htm
-— — content/           <= Content directory
+— — content/             <= Content directory
 — — — intro.htm
-— — assets/            <= Assets directory
-— — — css/
-— — — — theme.min.css  <= Minified styles
+— — assets/              <= Assets directory
+— — — styles/
+— — — — theme.sass       <= Main Sass file
+— — — — dist/
+— — — — — theme.min.css  <= Minified styles
 — — — js/
-— — — — theme.js       <= Main theme JavaScript file
-— — — — theme.min.js   <= Minified scripts
+— — — — theme.js         <= Main theme JavaScript file
+— — — — dist/
+— — — — — theme.min.js   <= Minified scripts
 — — — images/
-— — — sass/            <= Preprocessor folder
-— — — — theme.sass     <= Main user Sass file
 — — theme.yaml
 </pre>
 
@@ -50,7 +51,7 @@ themes/
 	<li><strong>Make proxy for live development with Browsersync</strong> - <code>let <strong>localhost</strong></code></li>
 	<li><strong>Simple selection of the current theme</strong> - <code>let <strong>theme</strong></code></li>
 	<li><strong>Simple selection of file extensions to watch & reload</strong> - <code>let <strong>fileswatch</strong></code></li>
-	<li><strong>Better CSS</strong> - <code>sass, gulp-autoprefixer</code>. Importing framework extras CSS into theme preprocessor file</li>
+	<li><strong>Better CSS</strong> - <code>sass, gulp-autoprefixer</code>. Importing framework extras CSS into theme.sass file</li>
 	<li><strong>Better JS</strong> - <code>Webpack+Babel</code>. Best javascript import/require practices.</li>
 	<li><strong>Better deploy with</strong> <code>gulp-rsync</code></li>
 </ol>
@@ -58,10 +59,9 @@ themes/
 <h2>Exported Gulp Task</h2>
 
 <ul>
-	<li><strong>browsersync</strong></li>
-	<li><strong>assets</strong> - Compile assets (CSS & JS)</li>
-	<li><strong>styles</strong> - Compile and concat CSS with selected preprocessor</li>
 	<li><strong>scripts</strong> - Bundling & minify with Webpack + Babel</li>
+	<li><strong>styles</strong> - Compile and concat CSS with selected preprocessor</li>
 	<li><strong>deploy</strong> - deploy changes on server with gulp-rsync</li>
+	<li><strong>assets</strong> - Compile assets (CSS & JS)</li>
 	<li><strong>gulp</strong> - The default command to start the environment</li>
 </ul>
