@@ -10,8 +10,7 @@ require('modules/system/assets/js/framework.extras.js')
 
 document.addEventListener("DOMContentLoaded", function() {
 
-	// Custom JS Test
-	// document.getElementsByTagName("BODY")[0].style.display = "none";
+	// jQuery Test
 	// $('body').hide();
 
 });
