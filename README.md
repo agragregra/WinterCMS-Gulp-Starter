@@ -33,10 +33,11 @@ themes/
 — — content/             <= Content directory
 — — — intro.htm
 — — assets/              <= Assets directory
-— — — styles/
+— — — sass/
 — — — — theme.sass       <= Main style src file
+— — — css/
 — — — — theme.min.css    <= Minified styles
-— — — scripts/
+— — — js/
 — — — — theme.js         <= Main JavaScript src file
 — — — — theme.min.js     <= Minified scripts
 — — — images/

@@ -19,7 +19,7 @@ function browsersync() {
 }
 
 function scripts() {
-	return src(`themes/${theme}/assets/scripts/theme.js`)
+	return src(`themes/${theme}/assets/js/theme.js`)
 	.pipe(webpack({
 		mode: 'production',
 		module: {
@@ -38,16 +38,16 @@ function scripts() {
 		this.emit('end')
 	})
 	.pipe(rename('theme.min.js'))
-	.pipe(dest(`themes/${theme}/assets/scripts`))
+	.pipe(dest(`themes/${theme}/assets/js`))
 	.pipe(browserSync.stream())
 }
 
 function styles() {
-	return src(`themes/${theme}/assets/styles/theme.sass`)
+	return src(`themes/${theme}/assets/sass/theme.sass`)
 	.pipe(sass({ outputStyle: 'compressed' }))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
 	.pipe(rename('theme.min.css'))
-	.pipe(dest(`themes/${theme}/assets/styles`))
+	.pipe(dest(`themes/${theme}/assets/css`))
 	.pipe(browserSync.stream())
 }
 
@@ -68,8 +68,8 @@ function deploy() {
 			'package-lock.json',
 			'npm-debug.log',
 			'debug.log',
-			`themes/${theme}/assets/scripts/theme.js`,
-			`themes/${theme}/assets/styles/**/*.sass`,
+			`themes/${theme}/assets/js/theme.js`,
+			`themes/${theme}/assets/sass`,
 		],
 		recursive: true,
 		archive: true,
@@ -79,8 +79,8 @@ function deploy() {
 }
 
 function startwatch() {
-	watch([`themes/${theme}/assets/styles/**/*.sass`], { usePolling: true }, styles)
-	watch([`themes/${theme}/assets/scripts/**/*.js`, `!themes/${theme}/assets/scripts/*.min.js`], { usePolling: true }, scripts)
+	watch(`themes/${theme}/assets/sass/**/*.sass`, { usePolling: true }, styles)
+	watch([`themes/${theme}/assets/js/**/*.js`, `!themes/${theme}/assets/js/*.min.js`], { usePolling: true }, scripts)
 	watch([`themes/${theme}/**/*.{${fileswatch}}`, `plugins/**/*.{${fileswatch}}`], { usePolling: true }).on('change', browserSync.reload)
 }
 
