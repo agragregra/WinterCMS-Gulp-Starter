@@ -38,7 +38,7 @@ function scripts() {
 		this.emit('end')
 	})
 	.pipe(rename('theme.min.js'))
-	.pipe(dest(`themes/${theme}/assets/scripts/dist`))
+	.pipe(dest(`themes/${theme}/assets/scripts`))
 	.pipe(browserSync.stream())
 }
 
@@ -47,7 +47,7 @@ function styles() {
 	.pipe(sass({ outputStyle: 'compressed' }))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
 	.pipe(rename('theme.min.css'))
-	.pipe(dest(`themes/${theme}/assets/styles/dist`))
+	.pipe(dest(`themes/${theme}/assets/styles`))
 	.pipe(browserSync.stream())
 }
 
@@ -79,8 +79,8 @@ function deploy() {
 }
 
 function startwatch() {
-	watch([`themes/${theme}/assets/styles/**/*`, `!themes/${theme}/assets/styles/dist/**`], { usePolling: true }, styles)
-	watch([`themes/${theme}/assets/scripts/**/*.js`, `!themes/${theme}/assets/scripts/dist/**`], { usePolling: true }, scripts)
+	watch([`themes/${theme}/assets/styles/**/*.sass`], { usePolling: true }, styles)
+	watch([`themes/${theme}/assets/scripts/**/*.js`, `!themes/${theme}/assets/scripts/*.min.js`], { usePolling: true }, scripts)
 	watch([`themes/${theme}/**/*.{${fileswatch}}`, `plugins/**/*.{${fileswatch}}`], { usePolling: true }).on('change', browserSync.reload)
 }
 
