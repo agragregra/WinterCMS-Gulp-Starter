@@ -8,9 +8,9 @@ require('modules/system/assets/js/framework.extras.js')
 // require('themes/mytheme/assets/vendor/lazyload/lazyload.js')
 // require('plugins/nms/plugin/assets/js/plugin.js')
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', () => {
 
 	// jQuery Test
 	// $('body').hide();
 
-});
+})
