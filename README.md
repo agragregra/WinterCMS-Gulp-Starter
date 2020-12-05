@@ -37,7 +37,7 @@ themes/
 — — — — theme.sass       <= Main style src file
 — — — — dist/
 — — — — — theme.min.css  <= Minified styles
-— — — js/
+— — — scripts/
 — — — — theme.js         <= Main JavaScript src file
 — — — — dist/
 — — — — — theme.min.js   <= Minified scripts
