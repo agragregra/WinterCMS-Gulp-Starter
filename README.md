@@ -52,7 +52,7 @@ themes/
 	<li><strong>Simple selection of the current theme</strong> - <code>let <strong>theme</strong></code></li>
 	<li><strong>Simple selection of file extensions to watch & reload</strong> - <code>let <strong>fileswatch</strong></code></li>
 	<li><strong>Better CSS</strong> - <code>sass, gulp-autoprefixer</code>. Importing framework extras CSS into theme.sass file</li>
-	<li><strong>Better JS</strong> - <code>Webpack+Babel</code>. Best javascript import/require practices.</li>
+	<li><strong>Better JS</strong> - <code>Webpack+Babel</code>. Best javascript practices.</li>
 	<li><strong>Better deploy with</strong> <code>gulp-rsync</code></li>
 </ol>
 
