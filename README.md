@@ -1,6 +1,6 @@
 <h1>October CMS Gulp Starter</h1>
 
-<p>Lightweight optimized Gulp starter for October CMS theme development with Gulp 4, Webpack-stream, Babel, Browsersync, Sass, autoprefixer, rsync and more.</p>
+<p>Lightweight optimized Gulp starter for October CMS theme development with Gulp 4, Webpack-stream, Babel, Browsersync, Sass, autoprefixer, rsync and more based on <a href="https://github.com/agragregra/OptimizedHTML-5">OptimizedHTML 5</a> practices.</p>
 
 <p>
 	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/october-gulp-preview.jpg" alt="Optober Gulp">
