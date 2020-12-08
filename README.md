@@ -8,7 +8,7 @@
 
 <h2>Installation</h2>
 
-<p>Run this in the root directory of you site with remove all unnecessary (one command):</p>
+<p>Run this command in the root directory of you site with remove all unnecessary (one command):</p>
 
 <code>git init .; git remote add -f origin https://github.com/agragregra/OctoberCMS-Gulp-Starter; git checkout master; git clone https://github.com/agragregra/OctoberCMS-Gulp-Starter .; rm -rf trunk .gitignore readme.md .git</code>
 
