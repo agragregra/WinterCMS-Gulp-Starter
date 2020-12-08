@@ -60,6 +60,7 @@ function deploy() {
 		destination: 'yousite/public_html/', // Deploy destination
 		include: [ '*.htaccess', ], // Included files to deploy
 		exclude: [ // Excluded files from deploy
+			// '.htaccess',
 			'storage/*.sqlite',
 			'**/Thumbs.db',
 			'**/*.DS_Store',
