@@ -10,7 +10,7 @@
 
 <p>Run this in the root directory of you site <strong>with a dot</strong> at the end with remove all unnecessary (one command):</p>
 
-<pre style="white-space: pre-wrap">git init .; git remote add -f origin https://github.com/agragregra/OctoberCMS-Gulp-Starter; git checkout master; git clone https://github.com/agragregra/OctoberCMS-Gulp-Starter .; rm -rf trunk .gitignore readme.md .git</pre>
+<code>git init .; git remote add -f origin https://github.com/agragregra/OctoberCMS-Gulp-Starter; git checkout master; git clone https://github.com/agragregra/OctoberCMS-Gulp-Starter .; rm -rf trunk .gitignore readme.md .git</code>
 
 <h2>October CMS Theme Directory structure</h2>
 
