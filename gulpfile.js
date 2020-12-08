@@ -53,9 +53,9 @@ function styles() {
 }
 
 function deploy() {
-	return src('/')
+	return src('./')
 	.pipe(rsync({
-		root: '/',
+		root: './',
 		hostname: 'username@yousite.com', // Deploy hostname
 		destination: 'yousite/public_html/', // Deploy destination
 		include: [ '*.htaccess', ], // Included files to deploy
