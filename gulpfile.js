@@ -53,7 +53,7 @@ function scripts() {
 }
 
 function styles() {
-	return src([`themes/${theme}/assets/styles/${preprocessor}/theme.*`, `!themes/${theme}/assets/${preprocessor}/_*.*`])
+	return src([`themes/${theme}/assets/styles/${preprocessor}/theme.*`, `!themes/${theme}/assets/styles/${preprocessor}/_*.*`])
 	.pipe(eval(`${preprocessor}glob`)())
 	.pipe(eval(preprocessor)())
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
