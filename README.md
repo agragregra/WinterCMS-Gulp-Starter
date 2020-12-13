@@ -29,8 +29,10 @@ themes/
 — — content/             <= Content directory
 — — — intro.htm
 — — assets/              <= Assets directory
-— — — sass/
-— — — — theme.sass       <= Main style src file
+— — — styles/            <= Styles directory
+— — — — sass/            <= Preprocessor directory (sass, less, styl)
+— — — — — theme.sass     <= Main theme style src file
+— — — — — blocks/        <= Parts of styles (auto include to theme.*)
 — — — css/
 — — — — theme.min.css    <= Minified styles
 — — — js/
@@ -43,12 +45,13 @@ themes/
 <h2>Starter Features & Variables in gulpfile.js</h2>
 
 <ol>
-	<li><strong>Make proxy for live development with Browsersync</strong> - <code>let <strong>localhost</strong></code></li>
-	<li><strong>Simple selection of the current theme</strong> - <code>let <strong>theme</strong></code></li>
-	<li><strong>Simple selection of file extensions to watch & reload</strong> - <code>let <strong>fileswatch</strong></code></li>
-	<li><strong>Better CSS</strong> - <code>sass, gulp-autoprefixer</code>. Importing framework extras CSS into theme.sass file</li>
-	<li><strong>Better JS</strong> - <code>Webpack+Babel</code>. Best javascript practices.</li>
-	<li><strong>Better deploy with</strong> <code>gulp-rsync</code></li>
+	<li>Make proxy for live development with Browsersync - <code>let <strong>localhost</strong></code></li>
+	<li>Simple selection of preprocessor - <code>let <strong>preprocessor</strong></code></li>
+	<li>Simple selection of current theme - <code>let <strong>theme</strong></code></li>
+	<li>Simple selection of file extensions to watch & reload - <code>let <strong>fileswatch</strong></code></li>
+	<li>Better CSS - <code>sass, less, styl, gulp-clean-css, gulp-autoprefixer</code>. Importing framework extras CSS into "{theme}/assets/styles/{preprocessor}/theme.* file</li>
+	<li>Better JS - <code>Webpack+Babel</code>. Best javascript practices.</li>
+	<li>Better deploy with <code>gulp-rsync</code></li>
 </ol>
 
 <h2>Exported Gulp Task</h2>
