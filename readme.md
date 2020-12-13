@@ -53,7 +53,7 @@ themes/
 	<li>Better JS - <code>Webpack+Babel</code>. Best javascript practices.</li>
 	<li>Better deploy with <code>gulp-rsync</code></li>
 </ol>
-
+1
 <h2>Exported Gulp Task</h2>
 
 <ul>
