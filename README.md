@@ -46,7 +46,7 @@ themes/
 
 <ol>
 	<li>Make proxy for live development with Browsersync - <code>let <strong>localhost</strong></code></li>
-	<li>Simple selection of preprocessor - <code>let <strong>preprocessor</strong></code></li>
+	<li>Simple selection of preprocessor - <code>let <strong>preprocessor</strong></code> (sass, less, styl)</li>
 	<li>Simple selection of current theme - <code>let <strong>theme</strong></code></li>
 	<li>Simple selection of file extensions to watch & reload - <code>let <strong>fileswatch</strong></code></li>
 	<li>Better CSS - <code>sass, less, styl, gulp-clean-css, gulp-autoprefixer</code>. Importing framework extras CSS into "{theme}/assets/styles/{preprocessor}/theme.* file</li>
