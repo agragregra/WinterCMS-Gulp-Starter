@@ -42,7 +42,7 @@ themes/
 — — theme.yaml
 </pre>
 
-<h2>Starter Features & Variables in gulpfile.js</h2>
+<h2>Features & Variables in gulpfile.js</h2>
 
 <ol>
 	<li>Make proxy for live development with Browsersync - <code>let <strong>localhost</strong></code></li>
