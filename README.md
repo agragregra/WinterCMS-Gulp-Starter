@@ -49,7 +49,7 @@ themes/
 	<li>Simple selection of preprocessor - <code>let <strong>preprocessor</strong></code> (sass, less or styl)</li>
 	<li>Simple selection of current theme - <code>let <strong>theme</strong></code></li>
 	<li>Simple selection of file extensions to watch & reload - <code>let <strong>fileswatch</strong></code></li>
-	<li>Better CSS - <code>sass, less, styl, gulp-clean-css, gulp-autoprefixer</code>. <br>Importing framework extras CSS into "{theme}/assets/styles/{preprocessor}/theme.* file</li>
+	<li>Better CSS - <code>sass, less, styl, gulp-clean-css, gulp-autoprefixer</code>. <br>Importing framework extras CSS into "{theme}/assets/styles/{preprocessor}/theme.*" file</li>
 	<li>Better JS - <code>Webpack+Babel</code>. Best javascript practices.</li>
 	<li>Better deploy with <code>gulp-rsync</code></li>
 </ol>
