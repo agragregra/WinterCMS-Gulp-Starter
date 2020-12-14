@@ -41,13 +41,11 @@ function scripts() {
 					}
 				}
 			]
-		},
-		output: {
-			filename: 'theme.min.js'
 		}
 	})).on('error', function handleError() {
 		this.emit('end')
 	})
+	.pipe(rename('theme.min.js'))
 	.pipe(dest(`themes/${theme}/assets/js`))
 	.pipe(browserSync.stream())
 }
