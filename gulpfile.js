@@ -29,6 +29,7 @@ function scripts() {
 	return src(`themes/${theme}/assets/js/theme.js`)
 	.pipe(webpack({
 		mode: 'production',
+		performance: { hints: false },
 		module: {
 			rules: [
 				{
