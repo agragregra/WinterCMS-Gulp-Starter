@@ -68,6 +68,7 @@ function deploy() {
 		root: './',
 		hostname: 'username@yousite.com', // Deploy hostname
 		destination: 'yousite/public_html/', // Deploy destination
+		clean: true,
 		include: [ '*.htaccess', ], // Included files to deploy
 		exclude: [ // Excluded files from deploy
 			// '.htaccess',
@@ -80,6 +81,7 @@ function deploy() {
 			'package-lock.json',
 			'npm-debug.log',
 			'debug.log',
+			'.git',
 			`themes/${theme}/assets/js/theme.js`,
 			`themes/${theme}/assets/sass`,
 		],
