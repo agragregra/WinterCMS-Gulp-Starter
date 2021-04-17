@@ -1,6 +1,6 @@
-<h1>October CMS Gulp Starter</h1>
+<h1>October CMS / Winter CMS Gulp Starter</h1>
 
-<p>Lightweight optimized Gulp starter for October CMS theme development with Gulp 4, Webpack-stream, Babel, Browsersync, Sass, autoprefixer, rsync and more based on <a href="https://github.com/agragregra/OptimizedHTML-5">OptimizedHTML 5</a> practices.</p>
+<p>Lightweight optimized Gulp starter for October CMS / Winter CMS theme development with Gulp 4, Webpack-stream, Babel, Browsersync, Sass, autoprefixer, rsync and more based on <a href="https://github.com/agragregra/OptimizedHTML-5">OptimizedHTML 5</a> practices.</p>
 
 <p>
 	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/october-gulp-preview.jpg" alt="Optober Gulp">
@@ -12,7 +12,7 @@
 
 <code>git init .; git remote add -f origin https://github.com/agragregra/OctoberCMS-Gulp-Starter; git checkout master; git clone https://github.com/agragregra/OctoberCMS-Gulp-Starter .; rm -rf trunk .gitignore readme.md .git</code>
 
-<h2>October CMS Theme Directory structure</h2>
+<h2>October CMS / Winter CMS Theme Directory structure</h2>
 
 <p>Recommends using the following base directory structure for you theme:</p>
 
