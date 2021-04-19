@@ -1,18 +1,18 @@
-<h1>October CMS / Winter CMS Gulp Starter</h1>
+<h1>Winter CMS Gulp Starter</h1>
 
-<p>Lightweight optimized Gulp starter for October CMS / Winter CMS theme development with Gulp 4, Webpack-stream, Babel, Browsersync, Sass, autoprefixer, rsync and more based on <a href="https://github.com/agragregra/OptimizedHTML-5">OptimizedHTML 5</a> practices.</p>
+<p>Lightweight optimized Gulp starter for <a href="https://github.com/wintercms/winter">Winter CMS</a> theme development with Gulp 4, Webpack-stream, Babel, Browsersync, Sass, autoprefixer, rsync and more based on <a href="https://github.com/agragregra/OptimizedHTML-5">OptimizedHTML 5</a> practices.</p>
 
 <p>
-	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/october-gulp-preview.jpg" alt="Optober Gulp">
+	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/winter-gulp-preview.jpg" alt="Optober Gulp">
 </p>
 
 <h2>Installation</h2>
 
 <p>Run this command in the root directory of you site with remove all unnecessary (one command):</p>
 
-<code>git init .; git remote add -f origin https://github.com/agragregra/OctoberCMS-Gulp-Starter; git checkout master; git clone https://github.com/agragregra/OctoberCMS-Gulp-Starter .; rm -rf trunk .gitignore readme.md .git</code>
+<code>git init .; git remote add -f origin https://github.com/agragregra/WinterCMS-Gulp-Starter; git checkout master; git clone https://github.com/agragregra/WinterCMS-Gulp-Starter .; rm -rf trunk .gitignore readme.md .git</code>
 
-<h2>October CMS / Winter CMS Theme Directory structure</h2>
+<h2>Winter CMS / Winter CMS Theme Directory structure</h2>
 
 <p>Recommends using the following base directory structure for you theme:</p>
 
