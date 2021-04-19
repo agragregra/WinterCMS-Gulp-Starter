@@ -12,7 +12,7 @@
 
 <code>git init .; git remote add -f origin https://github.com/agragregra/WinterCMS-Gulp-Starter; git checkout master; git clone https://github.com/agragregra/WinterCMS-Gulp-Starter .; rm -rf trunk .gitignore readme.md .git</code>
 
-<h2>Winter CMS / Winter CMS Theme Directory structure</h2>
+<h2>Winter CMS Theme Directory structure</h2>
 
 <p>Recommends using the following base directory structure for you theme:</p>
 
