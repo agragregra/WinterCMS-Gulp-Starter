@@ -6,12 +6,12 @@
 	"author": "WebDesign Master",
 	"license": "ISC",
 	"devDependencies": {
-		"@babel/core": "^7.14.6",
-		"@babel/preset-env": "^7.14.7",
+		"@babel/core": "^7.15.0",
+		"@babel/preset-env": "^7.15.0",
 		"babel-loader": "^8.2.2",
 		"babel-plugin-module-resolver": "^4.1.0",
 		"babel-plugin-root-import": "^6.6.0",
-		"browser-sync": "^2.27.1",
+		"browser-sync": "^2.27.5",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",
@@ -24,7 +24,7 @@
 		"gulp-sass-glob": "^1.1.0",
 		"gulp-stylus": "^2.7.0",
 		"jquery": "^3.6.0",
-		"sass": "^1.35.1",
+		"sass": "^1.38.0",
 		"webpack-stream": "^6.1.2"
 	}
 }
