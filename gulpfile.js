@@ -3,19 +3,24 @@ let localhost    = 'localhost', // Local domain
 		theme        = 'mytheme', // Theme folder name
 		fileswatch   = 'html,htm,php,txt,yaml,twig,json,md' // List of files extensions for watching & hard reload (comma separated)
 
-const { src, dest, parallel, series, watch } = require('gulp')
-const browserSync  = require('browser-sync').create()
-const webpack      = require('webpack-stream')
-const sass         = require('gulp-sass')(require('sass'))
-const sassglob     = require('gulp-sass-glob')
-const less         = require('gulp-less')
-const lessglob     = require('gulp-less-glob')
-const styl         = require('gulp-stylus')
-const stylglob     = require("gulp-empty")
-const cleancss     = require('gulp-clean-css')
-const autoprefixer = require('gulp-autoprefixer')
-const rename       = require('gulp-rename')
-const rsync        = require('gulp-rsync')
+import pkg from 'gulp'
+const { gulp, src, dest, parallel, series, watch } = pkg
+
+import browserSync  from 'browser-sync'
+import webpack      from 'webpack-stream'
+import gulpSass     from 'gulp-sass'
+import dartSass     from 'sass'
+import sassglob     from 'gulp-sass-glob'
+const sass          = gulpSass(dartSass)
+import less         from 'gulp-less'
+import lessglob     from 'gulp-less-glob'
+import styl         from 'gulp-stylus'
+import stylglob     from 'gulp-noop'
+import postCss      from 'gulp-postcss'
+import cssnano      from 'cssnano'
+import autoprefixer from 'autoprefixer'
+import rename       from 'gulp-rename'
+import rsync        from 'gulp-rsync'
 
 function browsersync() {
 	browserSync.init({
@@ -55,9 +60,11 @@ function styles() {
 	return src([`themes/${theme}/assets/styles/${preprocessor}/theme.*`, `!themes/${theme}/assets/styles/${preprocessor}/_*.*`])
 	.pipe(eval(`${preprocessor}glob`)())
 	.pipe(eval(preprocessor)())
-	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
-	.pipe(cleancss({ level: { 1: { specialComments: 0 } },/* format: 'beautify' */ }))
-	.pipe(rename({ suffix: ".min" }))
+	.pipe(postCss([
+		autoprefixer({ grid: 'autoplace' }),
+		cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
+	]))
+	.pipe(rename({ suffix: '.min' }))
 	.pipe(dest(`themes/${theme}/assets/css`))
 	.pipe(browserSync.stream())
 }
@@ -98,8 +105,6 @@ function startwatch() {
 	watch([`themes/${theme}/**/*.{${fileswatch}}`, `plugins/**/*.{${fileswatch}}`], { usePolling: true }).on('change', browserSync.reload)
 }
 
-exports.scripts     = scripts;
-exports.styles      = styles;
-exports.deploy      = deploy;
-exports.assets      = parallel(scripts, styles);
-exports.default     = series(scripts, styles, parallel(browsersync, startwatch));
+export { scripts, styles, deploy }
+export let assets = parallel(scripts, styles)
+export default series(scripts, styles, parallel(browsersync, startwatch))
