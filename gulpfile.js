@@ -6,21 +6,23 @@ let localhost    = 'localhost', // Local domain
 import pkg from 'gulp'
 const { gulp, src, dest, parallel, series, watch } = pkg
 
-import browserSync  from 'browser-sync'
-import webpack      from 'webpack-stream'
-import gulpSass     from 'gulp-sass'
-import dartSass     from 'sass'
-import sassglob     from 'gulp-sass-glob'
-const  sass         = gulpSass(dartSass)
-import less         from 'gulp-less'
-import lessglob     from 'gulp-less-glob'
-import styl         from 'gulp-stylus'
-import stylglob     from 'gulp-noop'
-import postCss      from 'gulp-postcss'
-import cssnano      from 'cssnano'
-import autoprefixer from 'autoprefixer'
-import rename       from 'gulp-rename'
-import rsync        from 'gulp-rsync'
+import browserSync   from 'browser-sync'
+import webpackStream from 'webpack-stream'
+import webpack       from 'webpack'
+import TerserPlugin  from 'terser-webpack-plugin'
+import gulpSass      from 'gulp-sass'
+import dartSass      from 'sass'
+import sassglob      from 'gulp-sass-glob'
+const  sass          = gulpSass(dartSass)
+import less          from 'gulp-less'
+import lessglob      from 'gulp-less-glob'
+import styl          from 'gulp-stylus'
+import stylglob      from 'gulp-noop'
+import postCss       from 'gulp-postcss'
+import cssnano       from 'cssnano'
+import autoprefixer  from 'autoprefixer'
+import concat        from 'gulp-concat'
+import rsync         from 'gulp-rsync'
 
 function browsersync() {
 	browserSync.init({
@@ -32,26 +34,40 @@ function browsersync() {
 
 function scripts() {
 	return src(`themes/${theme}/assets/js/theme.js`)
-	.pipe(webpack({
+	.pipe(webpackStream({
 		mode: 'production',
 		performance: { hints: false },
+		plugins: [
+			new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery' }), // jQuery (npm i jquery)
+		],
 		module: {
 			rules: [
 				{
-					test: /\.(js)$/,
+					test: /\.m?js$/,
 					exclude: /(node_modules)/,
-					loader: 'babel-loader',
-					query: {
-						presets: ['@babel/env'],
-						plugins: ['babel-plugin-root-import']
+					use: {
+						loader: 'babel-loader',
+						options: {
+							presets: ['@babel/preset-env'],
+							plugins: ['babel-plugin-root-import']
+						}
 					}
 				}
 			]
-		}
-	})).on('error', function handleError() {
+		},
+		optimization: {
+			minimize: true,
+			minimizer: [
+				new TerserPlugin({
+					terserOptions: { format: { comments: false } },
+					extractComments: false
+				})
+			]
+		},
+	}, webpack)).on('error', function handleError() {
 		this.emit('end')
 	})
-	.pipe(rename('theme.min.js'))
+	.pipe(concat('theme.min.js'))
 	.pipe(dest(`themes/${theme}/assets/js`))
 	.pipe(browserSync.stream())
 }
@@ -64,7 +80,7 @@ function styles() {
 		autoprefixer({ grid: 'autoplace' }),
 		cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
 	]))
-	.pipe(rename({ suffix: '.min' }))
+	.pipe(concat({ suffix: '.min' }))
 	.pipe(dest(`themes/${theme}/assets/css`))
 	.pipe(browserSync.stream())
 }
