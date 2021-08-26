@@ -80,7 +80,7 @@ function styles() {
 		autoprefixer({ grid: 'autoplace' }),
 		cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
 	]))
-	.pipe(concat({ suffix: '.min' }))
+	.pipe(concat('theme.min.css'))
 	.pipe(dest(`themes/${theme}/assets/css`))
 	.pipe(browserSync.stream())
 }
