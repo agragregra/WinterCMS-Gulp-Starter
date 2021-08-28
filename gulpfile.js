@@ -75,7 +75,7 @@ function scripts() {
 function styles() {
 	return src([`themes/${theme}/assets/styles/${preprocessor}/theme.*`, `!themes/${theme}/assets/styles/${preprocessor}/_*.*`])
 	.pipe(eval(`${preprocessor}glob`)())
-	.pipe(eval(preprocessor)())
+	.pipe(eval(preprocessor)({ 'include css': true }))
 	.pipe(postCss([
 		autoprefixer({ grid: 'autoplace' }),
 		cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
