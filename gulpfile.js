@@ -29,7 +29,7 @@ function browsersync() {
 		proxy: localhost,
 		ghostMode: { clicks: false },
 		notify: false,
-		online: true,
+		online: true
 	})
 }
 
@@ -117,7 +117,7 @@ function deploy() {
 }
 
 function startwatch() {
-	watch(`themes/${theme}/assets/styles/${preprocessor}/**/*`, { usePolling: true }, styles)
+	watch([`themes/${theme}/assets/styles/${preprocessor}/**/*`], { usePolling: true }, styles)
 	watch([`themes/${theme}/assets/js/**/*.js`, `!themes/${theme}/assets/js/*.min.js`], { usePolling: true }, scripts)
 	watch([`themes/${theme}/**/*.{${fileswatch}}`, `plugins/**/*.{${fileswatch}}`], { usePolling: true }).on('change', browserSync.reload)
 }
