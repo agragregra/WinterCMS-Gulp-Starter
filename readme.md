@@ -1,6 +1,6 @@
 <h1>Winter CMS Gulp Starter</h1>
 
-<p>Lightweight optimized Gulp starter for <a href="https://github.com/wintercms/winter">Winter CMS</a> theme development with Gulp 4, Webpack-stream, Babel, Browsersync, Sass, autoprefixer, rsync and more based on <a href="https://github.com/agragregra/OptimizedHTML-5">OptimizedHTML 5</a> practices.</p>
+<p>Lightweight optimized Gulp starter for <a href="https://github.com/wintercms/winter">Winter CMS</a> theme development with Gulp, Webpack-stream, Babel, Browsersync, Sass, autoprefixer, rsync and more based on <a href="https://github.com/agragregra/OptimizedHTML-5">OptimizedHTML 5</a> practices.</p>
 
 <p>
 	<img src="https://raw.githubusercontent.com/agragregra/agragregra.github.com/master/images/winter-gulp-preview.jpg" alt="Optober Gulp">
