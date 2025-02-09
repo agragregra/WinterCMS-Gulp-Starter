@@ -10,7 +10,7 @@ import '~/modules/system/assets/js/framework.extras.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 
-	// jQuery Test
-	// $('body').hide();
+  // jQuery Test
+  // $('body').hide();
 
 })
