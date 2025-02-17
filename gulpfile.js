@@ -65,8 +65,19 @@ function scripts() {
           })
         ]
       },
-    }, webpack)).on('error', function handleError() {
-      this.emit('end')
+    }, webpack, (err, stats) => {
+      if (err) {
+        console.error('❌ Webpack Error:', err);
+        this.emit('end');
+      }
+      if (stats.hasErrors()) {
+        console.error('❌ Webpack Stats Errors:', stats.toString({ colors: true }));
+        this.emit('end');
+      }
+    }))
+    .on('error', function (err) {
+      console.error('❌ Error in Gulp task scripts:', err.message);
+      this.emit('end');
     })
     .pipe(concat('theme.min.js'))
     .pipe(dest(`themes/${theme}/assets/js`))
