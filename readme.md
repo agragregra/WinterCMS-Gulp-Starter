@@ -10,7 +10,7 @@
 
 <p>Run this command in the root directory of you site with remove all unnecessary (one command):</p>
 
-<code>git clone https://github.com/webdesign-masteru/WinterCMS-Gulp-Starter .; rm -rf trunk .preview.jpg .gitignore readme.md .git</code>
+<pre>git clone https://github.com/webdesign-masteru/WinterCMS-Gulp-Starter .; rm -rf trunk .preview.jpg .gitignore readme.md .git</pre>
 
 <p>If no result, run the command twice.</p>
 
