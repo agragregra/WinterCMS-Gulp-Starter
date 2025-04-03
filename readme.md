@@ -12,8 +12,6 @@
 
 <pre>git clone https://github.com/webdesign-masteru/WinterCMS-Gulp-Starter .; rm -rf trunk preview.jpg .gitignore readme.md .git</pre>
 
-<p>If no result, run the command twice.</p>
-
 <h2>Winter CMS Theme Directory structure</h2>
 
 <p>Recommends using the following base directory structure for you theme:</p>
